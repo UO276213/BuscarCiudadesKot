@@ -1,0 +1,54 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c8c8c8">
+
+    <Button
+        android:id="@+id/botonAceptar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Aceptar"
+        map:layout_constraintBottom_toBottomOf="@+id/campoCiudad"
+        map:layout_constraintEnd_toStartOf="@+id/botonSiguiente"
+        map:layout_constraintStart_toEndOf="@+id/campoCiudad"
+        map:layout_constraintTop_toTopOf="@+id/campoCiudad" />
+
+    <Button
+        android:id="@+id/botonSiguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickSiguiente"
+        android:text="@string/Siguiente"
+        map:layout_constraintBottom_toBottomOf="@+id/botonAceptar"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintStart_toEndOf="@+id/botonAceptar"
+        map:layout_constraintTop_toTopOf="@+id/botonAceptar"
+        tools:ignore="RelativeOverlap" />
+
+    <TextView
+        android:id="@+id/campoCiudad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/nombre_ciudad"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="parent"
+        map:layout_constraintEnd_toStartOf="@+id/botonAceptar"
+        map:layout_constraintHorizontal_chainStyle="spread_inside"
+        />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        map:layout_constraintStart_toStartOf="@+id/campoCiudad"
+        map:layout_constraintTop_toBottomOf="@+id/botonAceptar"
+        tools:context=".MapsActivity" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
